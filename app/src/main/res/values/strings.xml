@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">diet</string>
+    <item type="id" name="your_button_id"/>
+</resources>
