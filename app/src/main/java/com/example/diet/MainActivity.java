@@ -1,6 +1,7 @@
 package com.example.diet;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -22,9 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    final int MENU_ALPHA_ID = 1;
-    final int MENU_TRANSLATE_ID = 2;
-
+    private AnimationDrawable mAnimationDrawable;
 
     int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
     public ArrayList<Integer> names = new ArrayList<>();
@@ -34,10 +34,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setBackgroundResource(R.drawable.catanimation);
+
+        mAnimationDrawable = (AnimationDrawable) imageView.getBackground();
+        mAnimationDrawable.start();
+
 
         HorizontalScrollView scrollView = findViewById(R.id.scrollView);
-          }
 
+    }
     @Override
     public void onClick(View v) {
         int ImageId; ImageButton btn;
@@ -47,6 +53,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         animationLeft.setDuration(1000);
         animationLeft.setRepeatMode(Animation.REVERSE);
         animationLeft.setStartOffset(1000);
+
         switch (v.getId()) {
             case R.id.bananaBtn:
                 ImageId=R.drawable.icons8_tomato_50;  btn = findViewById( R.id.bananaBtn); btn.startAnimation(animationLeft); break;
@@ -83,5 +90,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         }
     }
-}
 
+}
