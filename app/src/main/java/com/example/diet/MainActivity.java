@@ -38,10 +38,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         imageView.setBackgroundResource(R.drawable.catanimation);
 
         mAnimationDrawable = (AnimationDrawable) imageView.getBackground();
+        mAnimationDrawable.setOneShot(false);
         mAnimationDrawable.start();
-
-
-        HorizontalScrollView scrollView = findViewById(R.id.scrollView);
 
     }
     @Override
